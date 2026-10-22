@@ -139,6 +139,10 @@ function renderTopics() {
     const info = document.createElement("span");
     info.className = "topic-info";
 
+    const img = document.createElement("img");
+    img.className = "topic-image";
+    img.src = `./img/topic-${topicId}.jpg`;
+
     const name = document.createElement("span");
     name.className = "topic-name";
     name.textContent = topic.name;
@@ -152,7 +156,7 @@ function renderTopics() {
     count.textContent = `${topic.vocabulary.length} palavras`;
 
     info.append(name, description);
-    button.append(info, count);
+    button.append(img, info, count);
 
     topicList.append(button);
   }
