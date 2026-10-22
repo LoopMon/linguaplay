@@ -1,0 +1,14 @@
+:root {
+  color-scheme: light;
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --text: #182033;
+  --muted: #667085;
+  --primary: #5b5bd6;
+  --primary-hover: #4848bb;
+  --success: #16845b;
+  --success-bg: #e7f7ef;
+  --error: #c43e4d;
+  --error-bg: #fff0f1;
+  --border: #e3e7ef;
+}

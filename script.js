@@ -52,7 +52,21 @@ const topics = {
       { italian: "Collana", portuguese: ["colar"] },
       { italian: "Braccialetto", portuguese: ["pulseira"] }
     ]
-  }
+  },
+
+  foods: {
+    name: "Comidas",
+    description: "Aprenda sobre comidas e bebidas",
+    vocabulary: [
+      { italian: "mela", portuguese: ["maçã"] },
+      { italian: "banana", portuguese: ["banana"] },
+      { italian: "uva", portuguese: ["uva"] },
+      { italian: "arancia", portuguese: ["laranja"] },
+      { italian: "pera", portuguese: ["pera"] },
+      { italian: "fragola", portuguese: ["morango"] },
+      { italian: "mirtillo", portuguese: ["mirtilo"] },
+    ]
+  },
 };
 
 /*
@@ -85,6 +99,13 @@ const progressTrack = document.querySelector("#progress-track");
 const topicLabel = document.querySelector("#topic-label");
 const finalMessage = document.querySelector("#final-message");
 
+const resultTopic = document.querySelector("#result-topic");
+const resultTotal = document.querySelector("#result-total");
+const resultCorrect = document.querySelector("#result-correct");
+const resultWrong = document.querySelector("#result-wrong");
+const resultPercentage = document.querySelector("#result-percentage");
+
+
 /*
  * ESTADO DO JOGO
  */
@@ -95,6 +116,9 @@ let currentIndex = 0;
 let round = 1;
 let correct = 0;
 let wrong = 0;
+let correctTimer = 500;
+let wrongTimer = 2000;
+let nextQuestionTimer = 0;
 let answered = false;
 let lastItalian = null;
 let transitionTimer = null;
@@ -260,7 +284,7 @@ function scheduleNextQuestion() {
     currentIndex++;
 
     nextQuestion();
-  }, 500);
+  }, nextQuestionTimer);
 }
 
 /*
@@ -293,11 +317,13 @@ function submitAnswer(event) {
 
   if (accepted.includes(value)) {
     correct++;
+    nextQuestionTimer = correctTimer;
 
     feedback.className = "feedback success";
     feedback.textContent = "Correto! Muito bem.";
   } else {
     wrong++;
+    nextQuestionTimer = wrongTimer;
 
     feedback.className = "feedback error";
     feedback.textContent =
@@ -314,6 +340,7 @@ function skipQuestion() {
 
   answered = true;
   wrong++;
+  nextQuestionTimer = wrongTimer;
 
   const question = questions[currentIndex];
 
@@ -334,6 +361,7 @@ function skipQuestion() {
  * ENCERRAMENTO
  */
 
+
 function stopGame() {
   if (transitionTimer !== null) {
     window.clearTimeout(transitionTimer);
@@ -343,21 +371,28 @@ function stopGame() {
   answered = true;
 
   const total = correct + wrong;
-  const percentage = total ? Math.round((correct / total) * 100) : 0;
+  const percentage = total
+    ? Math.round((correct / total) * 100)
+    : 0;
 
+  // Atualiza os dados da tela de resultados.
+  resultTopic.textContent = topics[selectedTopic].name;
+  resultTotal.textContent = total;
+  resultCorrect.textContent = correct;
+  resultWrong.textContent = wrong;
+  resultPercentage.textContent = `${percentage}%`;
+
+  // Exibe os resultados e oculta o jogo e seu placar.
   playScreen.hidden = true;
   endScreen.hidden = false;
-
-  finalMessage.textContent =
-    `Assunto: ${topics[selectedTopic].name}. ` +
-    `Você respondeu ${total} palavras: ${correct} acertos ` +
-    `e ${wrong} erros. Aproveitamento: ${percentage}%.`;
+  statsElement.hidden = true;
 
   roundLabel.textContent = "Partida encerrada";
   progressPercent.textContent = "100%";
   progressBar.style.width = "100%";
   progressTrack.setAttribute("aria-valuenow", 100);
 }
+
 
 function startGame() {
   if (transitionTimer !== null) {
@@ -376,6 +411,7 @@ function startGame() {
   round = 1;
   correct = 0;
   wrong = 0;
+  nextQuestionTimer = 0;
   answered = false;
   lastItalian = null;
 
