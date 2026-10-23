@@ -489,13 +489,81 @@ backButton.addEventListener("click", showTopicSelection);
 renderTopics();
 showTopicSelection();
 
-btnChangeColor.addEventListener("click", () => {
-  if(toggleColor) {
-    document.body.style.background = "radial-gradient(circle at top left, #e8eaff, transparent 42%), var(--bg)";
-    toggleColor = !toggleColor;
 
+/*
+ * ALTERAÇÃO DE FUNDO AO BALANÇAR O CELULAR
+ */
+
+function toggleBackground() {
+  if (toggleColor) {
+    document.body.style.background =
+      "radial-gradient(circle at top left, #e8eaff, transparent 42%), var(--bg)";
   } else {
     document.body.style.background = "#F283B6";
-    toggleColor = !toggleColor;
   }
-})
+
+  toggleColor = !toggleColor;
+}
+
+let lastShakeTime = 0;
+const shakeThreshold = 12;
+const shakeCooldown = 1000;
+
+function handleDeviceMotion(event) {
+  const acceleration = event.acceleration;
+
+  if (
+    !acceleration ||
+    acceleration.x === null ||
+    acceleration.y === null ||
+    acceleration.z === null
+  ) {
+    return;
+  }
+
+  const intensity = Math.sqrt(
+    acceleration.x ** 2 +
+    acceleration.y ** 2 +
+    acceleration.z ** 2
+  );
+
+  const now = Date.now();
+
+  if (
+    intensity > shakeThreshold &&
+    now - lastShakeTime > shakeCooldown
+  ) {
+    lastShakeTime = now;
+    toggleBackground();
+  }
+}
+
+async function enableMotionDetection() {
+  try {
+    if (typeof DeviceMotionEvent === "undefined") {
+      console.warn("Detecção de movimento não suportada.");
+      return;
+    }
+
+    if (typeof DeviceMotionEvent.requestPermission === "function") {
+      const permission = await DeviceMotionEvent.requestPermission();
+
+      if (permission !== "granted") {
+        console.warn("Permissão para detectar movimento negada.");
+        return;
+      }
+    }
+
+    window.addEventListener("devicemotion", handleDeviceMotion);
+
+    console.log("Detecção de movimento ativada!");
+  } catch (error) {
+    console.error("Erro ao ativar sensores:", error);
+  }
+}
+
+// Mantém o botão como alternativa para testar no computador.
+btnChangeColor.addEventListener("click", toggleBackground);
+
+// A ativação precisa de uma interação do usuário em alguns navegadores.
+enableMotionDetection();
