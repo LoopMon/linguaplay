@@ -156,9 +156,13 @@ label {
 
 .actions {
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
+}
+
+.actions button {
+  flex: 1;
 }
 
 button {
@@ -209,7 +213,7 @@ button:disabled {
   display: flex;
   justify-content: space-around;
   gap: 16px;
-  margin: 0 0 24px;
+  margin: 0 0 14px;
   padding: 14px 0 0;
   border-top: 1px solid var(--border);
 }
@@ -407,7 +411,7 @@ button:disabled {
   overflow-wrap: anywhere;
 }
 
-@media (max-width: 420px) {
+@media (max-width: 470px) {
   body {
     padding: 14px;
   }
@@ -427,4 +431,7 @@ button:disabled {
   .selection-heading h2 {
     font-size: 1.35rem;
   }
-}
+  .actions {
+    flex-direction: column;
+  }
+} 

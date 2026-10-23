@@ -87,8 +87,8 @@ const topics = {
     name: "Cores",
     description: "Aprenda os nomes das cores em italiano.",
     vocabulary: [
-      { italian: "Rosso", portuguese: ["vermelho"] },
-      { italian: "Giallo", portuguese: ["amarelo"] },
+      { italian: "Rosso", portuguese: ["vermelho", "vermelha"] },
+      { italian: "Giallo", portuguese: ["amarelo", "amarela"] },
       { italian: "Verde", portuguese: ["verde"] },
       { italian: "Blu", portuguese: ["azul"] },
       { italian: "Grigio", portuguese: ["cinza"] },
@@ -97,7 +97,7 @@ const topics = {
       { italian: "Marrone", portuguese: ["marrom"] },
       { italian: "Nero", portuguese: ["preto"] },
       { italian: "Rosa", portuguese: ["rosa"] },
-      { italian: "Bianco", portuguese: ["branco"] }
+      { italian: "Bianco", portuguese: ["branco", "branca"] }
     ]
   }
 };
@@ -105,7 +105,8 @@ const topics = {
 /*
  * ELEMENTOS DA INTERFACE
  */
-
+const btnChangeColor = document.querySelector(".tag");
+let toggleColor = false;
 const selectionScreen = document.querySelector("#selection-screen");
 const topicList = document.querySelector("#topic-list");
 const playScreen = document.querySelector("#play-screen");
@@ -487,3 +488,14 @@ backButton.addEventListener("click", showTopicSelection);
 
 renderTopics();
 showTopicSelection();
+
+btnChangeColor.addEventListener("click", () => {
+  if(toggleColor) {
+    document.body.style.background = "radial-gradient(circle at top left, #e8eaff, transparent 42%), var(--bg)";
+    toggleColor = !toggleColor;
+
+  } else {
+    document.body.style.background = "#F283B6";
+    toggleColor = !toggleColor;
+  }
+})
