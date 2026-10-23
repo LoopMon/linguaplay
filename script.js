@@ -65,8 +65,41 @@ const topics = {
       { italian: "pera", portuguese: ["pera"] },
       { italian: "fragola", portuguese: ["morango"] },
       { italian: "mirtillo", portuguese: ["mirtilo"] },
+      { italian: "pasta", portuguese: ["massa", "macarrão"] },
+      { italian: "pane", portuguese: ["pão"] },
+      { italian: "acqua", portuguese: ["água"] },
+      { italian: "latte", portuguese: ["leite"] },
+      { italian: "pizza", portuguese: ["pizza"] },
+      { italian: "pomodoro", portuguese: ["tomate"] },
+      { italian: "caffè", portuguese: ["café"] },
+      { italian: "carota", portuguese: ["cenoura"] },
+      { italian: "pollo", portuguese: ["frango"] },
+      { italian: "gelato", portuguese: ["sorvete"] },
+      { italian: "riso", portuguese: ["arroz"] },
+      { italian: "centriolo", portuguese: ["pepino"] },
+      { italian: "mandarino", portuguese: ["tangerina"] },
+      { italian: "pompelmo", portuguese: ["toranja"] },
+      { italian: "torta", portuguese: ["bolo", "torta"] },
     ]
   },
+
+  colors: {
+    name: "Cores",
+    description: "Aprenda os nomes das cores em italiano.",
+    vocabulary: [
+      { italian: "Rosso", portuguese: ["vermelho"] },
+      { italian: "Giallo", portuguese: ["amarelo"] },
+      { italian: "Verde", portuguese: ["verde"] },
+      { italian: "Blu", portuguese: ["azul"] },
+      { italian: "Grigio", portuguese: ["cinza"] },
+      { italian: "Arancione", portuguese: ["laranja"] },
+      { italian: "Viola", portuguese: ["roxo", "violeta"] },
+      { italian: "Marrone", portuguese: ["marrom"] },
+      { italian: "Nero", portuguese: ["preto"] },
+      { italian: "Rosa", portuguese: ["rosa"] },
+      { italian: "Bianco", portuguese: ["branco"] }
+    ]
+  }
 };
 
 /*
