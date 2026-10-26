@@ -90,47 +90,49 @@
         </div>
 
         <!-- Quadro -->
-        <div class="prompt" aria-live="polite">
-          <div>
-            <p class="prompt-label">Traduza para português</p>
-            <p class="word" id="word"></p>
+        <div class="board">
+          <div class="prompt" aria-live="polite">
+            <div>
+              <p class="prompt-label">Traduza para português</p>
+              <p class="word" id="word"></p>
+            </div>
           </div>
+  
+          <!-- Entrada do usuário -->
+          <form id="answer-form">
+            <label for="answer">Sua tradução</label>
+  
+            <input
+              class="answer-input"
+              id="answer"
+              name="answer"
+              type="text"
+              placeholder="Digite a tradução..."
+              autocomplete="off"
+              autocapitalize="none"
+              spellcheck="false"
+              required
+            />
+  
+            <div class="feedback" id="feedback" aria-live="polite">
+              Digite sua resposta e pressione Enter.
+            </div>
+  
+            <div class="actions">
+              <button class="primary-btn" id="submit-btn" type="submit">
+                Responder
+              </button>
+  
+              <button class="secondary-btn" id="skip-btn" type="button">
+                Pular palavra
+              </button>
+  
+              <button class="third-btn" id="stop-btn" type="button">
+                Parar partida
+              </button>
+            </div>
+          </form>
         </div>
-
-        <!-- Entrada do usuário -->
-        <form id="answer-form">
-          <label for="answer">Sua tradução</label>
-
-          <input
-            class="answer-input"
-            id="answer"
-            name="answer"
-            type="text"
-            placeholder="Digite a tradução..."
-            autocomplete="off"
-            autocapitalize="none"
-            spellcheck="false"
-            required
-          />
-
-          <div class="feedback" id="feedback" aria-live="polite">
-            Digite sua resposta e pressione Enter.
-          </div>
-
-          <div class="actions">
-            <button class="primary-btn" id="submit-btn" type="submit">
-              Responder
-            </button>
-
-            <button class="secondary-btn" id="skip-btn" type="button">
-              Pular palavra
-            </button>
-
-            <button class="third-btn" id="stop-btn" type="button">
-              Parar partida
-            </button>
-          </div>
-        </form>
       </section>
 
       <!-- Resultado da partida -->

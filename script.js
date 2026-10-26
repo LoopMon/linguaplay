@@ -9,9 +9,7 @@ async function loadTopics() {
     const response = await fetch("./data/topics.json");
 
     if (!response.ok) {
-      throw new Error(
-        `Falha ao carregar topics.json: HTTP ${response.status}`
-      );
+      throw new Error(`Falha ao carregar topics.json: HTTP ${response.status}`);
     }
 
     topics = await response.json();
@@ -69,6 +67,24 @@ const resultTotal = document.querySelector("#result-total");
 const resultCorrect = document.querySelector("#result-correct");
 const resultWrong = document.querySelector("#result-wrong");
 const resultPercentage = document.querySelector("#result-percentage");
+
+/*
+ * EFEITOS SONOROS
+ */
+
+const correctSound = new Audio("./audio/gentle-success-chime.mp3");
+const wrongSound = new Audio("./audio/digital-error-pop.mp3");
+
+correctSound.preload = "auto";
+wrongSound.preload = "auto";
+
+function playSound(sound) {
+  sound.currentTime = 0;
+
+  sound.play().catch((error) => {
+    console.warn("Não foi possível reproduzir o efeito sonoro:", error);
+  });
+}
 
 /*
  * ESTADO DO JOGO
@@ -186,9 +202,7 @@ function updateStats() {
   document.querySelector("#wrong-count").textContent = wrong;
 
   const attempted = correct + wrong;
-  const percentage = attempted
-    ? Math.round((correct / attempted) * 100)
-    : 0;
+  const percentage = attempted ? Math.round((correct / attempted) * 100) : 0;
 
   document.querySelector("#score-percent").textContent = `${percentage}%`;
 }
@@ -197,8 +211,7 @@ function updateProgress() {
   const total = questions.length;
   const percent = Math.round((currentIndex / total) * 100);
 
-  roundLabel.textContent =
-    `Palavra ${currentIndex + 1} de ${total} · Rodada ${round}`;
+  roundLabel.textContent = `Palavra ${currentIndex + 1} de ${total} · Rodada ${round}`;
 
   progressPercent.textContent = `${percent}%`;
   progressBar.style.width = `${percent}%`;
@@ -214,10 +227,7 @@ function nextQuestion() {
     questions = shuffle(topics[selectedTopic].vocabulary);
 
     // Evita repetir imediatamente a última palavra da rodada anterior.
-    if (
-      questions.length > 1 &&
-      questions[0].italian === lastItalian
-    ) {
+    if (questions.length > 1 && questions[0].italian === lastItalian) {
       [questions[0], questions[1]] = [questions[1], questions[0]];
     }
 
@@ -274,8 +284,7 @@ function submitAnswer(event) {
 
   if (!value) {
     feedback.className = "feedback error";
-    feedback.textContent =
-      "Digite uma tradução antes de responder.";
+    feedback.textContent = "Digite uma tradução antes de responder.";
 
     answerInput.focus();
     return;
@@ -294,11 +303,15 @@ function submitAnswer(event) {
     correct++;
     nextQuestionTimer = correctTimer;
 
+    playSound(correctSound);
+
     feedback.className = "feedback success";
     feedback.textContent = "Correto! Muito bem.";
   } else {
     wrong++;
     nextQuestionTimer = wrongTimer;
+
+    playSound(wrongSound);
 
     feedback.className = "feedback error";
     feedback.innerHTML =
@@ -345,9 +358,7 @@ function stopGame() {
   answered = true;
 
   const total = correct + wrong;
-  const percentage = total
-    ? Math.round((correct / total) * 100)
-    : 0;
+  const percentage = total ? Math.round((correct / total) * 100) : 0;
 
   // Atualiza os dados da tela de resultados.
   resultTopic.textContent = topics[selectedTopic].name;
@@ -373,10 +384,7 @@ function startGame() {
     transitionTimer = null;
   }
 
-  if (
-    selectedTopic === null ||
-    !Object.hasOwn(topics, selectedTopic)
-  ) {
+  if (selectedTopic === null || !Object.hasOwn(topics, selectedTopic)) {
     showTopicSelection();
     return;
   }

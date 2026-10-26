@@ -78,7 +78,7 @@ body {
 
 .topic-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 12px;
 }
 
@@ -231,6 +231,13 @@ body {
 /* ==================== */
 /* Quadro */
 /* ==================== */
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 24px;
+}
+
 .prompt {
   min-height: 190px;
   display: grid;
@@ -240,7 +247,6 @@ body {
   border-radius: 20px;
   background: linear-gradient(145deg, #fafaff, #f1f1ff);
   padding: 24px;
-  margin-bottom: 24px;
 }
 
 .prompt-label {
@@ -294,7 +300,7 @@ label {
 
 .feedback {
   min-height: 48px;
-  margin: 8px 0 14px;
+  margin: 8px 0 0;
   padding: 10px 12px;
   border-radius: 10px;
   color: var(--muted);
@@ -452,3 +458,15 @@ button {
     flex-direction: column;
   }
 } 
+
+@media (max-width: 700px) {
+  .board {
+    grid-template-columns: 1fr;
+  }
+  .prompt {
+    margin-bottom: 24px;
+  }
+  .feedback {
+    margin-bottom: 14px;
+  }
+}
