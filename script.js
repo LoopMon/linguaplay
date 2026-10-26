@@ -1,112 +1,43 @@
 /*
- * BASES DE DADOS
- *
- * Para adicionar um assunto, crie uma nova propriedade
- * dentro de "topics", seguindo a mesma estrutura.
+ * BASE DE DADOS
  */
 
-const topics = {
-  directions: {
-    name: "Direções",
-    description: "Aprenda a indicar posições e caminhos.",
-    vocabulary: [
-      { italian: "Destra", portuguese: ["direita", "direito"] },
-      { italian: "Sinistra", portuguese: ["esquerda", "esquerdo"] },
-      { italian: "Dritto", portuguese: ["direto", "reto", "em frente"] },
-      { italian: "Vicino", portuguese: ["perto", "próximo", "próxima"] },
-      { italian: "Lontano", portuguese: ["longe", "distante"] },
-      { italian: "Qui", portuguese: ["aqui"] },
-      { italian: "Lì", portuguese: ["ali", "alí"] },
-      { italian: "Sopra", portuguese: ["acima", "em cima", "sobre"] },
-      { italian: "Sotto", portuguese: ["abaixo", "embaixo", "debaixo"] }
-    ]
-  },
+let topics = {};
 
-  clothing: {
-    name: "Peças de roupa",
-    description: "Conheça nomes de roupas e acessórios.",
-    vocabulary: [
-      { italian: "Maglietta", portuguese: ["camiseta"] },
-      { italian: "Camicia", portuguese: ["camisa"] },
-      { italian: "Pantalone", portuguese: ["calça", "calcas", "calças"] },
-      { italian: "Jeans", portuguese: ["jeans"] },
-      { italian: "Gonna", portuguese: ["saia"] },
-      { italian: "Vestito", portuguese: ["vestido"] },
-      { italian: "Giacca", portuguese: ["jaqueta"] },
-      { italian: "Cappotto", portuguese: ["casaco", "sobretudo"] },
-      {
-        italian: "Maglione",
-        portuguese: ["suéter", "sueter", "blusão", "pulôver", "pulover"]
-      },
-      { italian: "Calzino", portuguese: ["meia", "meias"] },
-      { italian: "Scarpe", portuguese: ["sapato", "sapatos"] },
-      { italian: "Stivali", portuguese: ["bota", "botas"] },
-      { italian: "Cappello", portuguese: ["chapéu", "chapeu"] },
-      { italian: "Sciarpa", portuguese: ["cachecol"] },
-      { italian: "Guanti", portuguese: ["luva", "luvas"] },
-      { italian: "Cintura", portuguese: ["cinto"] },
-      { italian: "Borsa", portuguese: ["bolsa"] },
-      { italian: "Zaino", portuguese: ["mochila"] },
-      { italian: "Occhiali", portuguese: ["óculos", "oculos"] },
-      { italian: "Orologio", portuguese: ["relógio", "relogio"] },
-      { italian: "Collana", portuguese: ["colar"] },
-      { italian: "Braccialetto", portuguese: ["pulseira"] }
-    ]
-  },
+async function loadTopics() {
+  try {
+    const response = await fetch("./data/topics.json");
 
-  foods: {
-    name: "Comidas",
-    description: "Aprenda sobre comidas e bebidas",
-    vocabulary: [
-      { italian: "mela", portuguese: ["maçã"] },
-      { italian: "banana", portuguese: ["banana"] },
-      { italian: "uva", portuguese: ["uva"] },
-      { italian: "arancia", portuguese: ["laranja"] },
-      { italian: "pera", portuguese: ["pera"] },
-      { italian: "fragola", portuguese: ["morango"] },
-      { italian: "mirtillo", portuguese: ["mirtilo"] },
-      { italian: "pasta", portuguese: ["massa", "macarrão"] },
-      { italian: "pane", portuguese: ["pão"] },
-      { italian: "acqua", portuguese: ["água"] },
-      { italian: "latte", portuguese: ["leite"] },
-      { italian: "pizza", portuguese: ["pizza"] },
-      { italian: "pomodoro", portuguese: ["tomate"] },
-      { italian: "caffè", portuguese: ["café"] },
-      { italian: "carota", portuguese: ["cenoura"] },
-      { italian: "pollo", portuguese: ["frango"] },
-      { italian: "gelato", portuguese: ["sorvete"] },
-      { italian: "riso", portuguese: ["arroz"] },
-      { italian: "centriolo", portuguese: ["pepino"] },
-      { italian: "mandarino", portuguese: ["tangerina"] },
-      { italian: "pompelmo", portuguese: ["toranja"] },
-      { italian: "torta", portuguese: ["bolo", "torta"] },
-    ]
-  },
+    if (!response.ok) {
+      throw new Error(
+        `Falha ao carregar topics.json: HTTP ${response.status}`
+      );
+    }
 
-  colors: {
-    name: "Cores",
-    description: "Aprenda os nomes das cores em italiano.",
-    vocabulary: [
-      { italian: "Rosso", portuguese: ["vermelho", "vermelha"] },
-      { italian: "Giallo", portuguese: ["amarelo", "amarela"] },
-      { italian: "Verde", portuguese: ["verde"] },
-      { italian: "Blu", portuguese: ["azul"] },
-      { italian: "Grigio", portuguese: ["cinza"] },
-      { italian: "Arancione", portuguese: ["laranja"] },
-      { italian: "Viola", portuguese: ["roxo", "violeta"] },
-      { italian: "Marrone", portuguese: ["marrom"] },
-      { italian: "Nero", portuguese: ["preto"] },
-      { italian: "Rosa", portuguese: ["rosa"] },
-      { italian: "Bianco", portuguese: ["branco", "branca"] }
-    ]
+    topics = await response.json();
+
+    renderTopics();
+    showTopicSelection();
+  } catch (error) {
+    console.error("Erro ao carregar a base de dados:", error);
+
+    topicList.replaceChildren();
+
+    const message = document.createElement("p");
+    message.textContent =
+      "Não foi possível carregar os assuntos. Tente recarregar a página.";
+
+    topicList.append(message);
   }
-};
+}
 
 /*
  * ELEMENTOS DA INTERFACE
  */
+
 const btnChangeColor = document.querySelector(".tag");
 let toggleColor = false;
+
 const selectionScreen = document.querySelector("#selection-screen");
 const topicList = document.querySelector("#topic-list");
 const playScreen = document.querySelector("#play-screen");
@@ -139,7 +70,6 @@ const resultCorrect = document.querySelector("#result-correct");
 const resultWrong = document.querySelector("#result-wrong");
 const resultPercentage = document.querySelector("#result-percentage");
 
-
 /*
  * ESTADO DO JOGO
  */
@@ -148,11 +78,14 @@ let selectedTopic = null;
 let questions = [];
 let currentIndex = 0;
 let round = 1;
+
 let correct = 0;
 let wrong = 0;
+
 let correctTimer = 500;
-let wrongTimer = 2000;
+let wrongTimer = 2500;
 let nextQuestionTimer = 0;
+
 let answered = false;
 let lastItalian = null;
 let transitionTimer = null;
@@ -200,6 +133,7 @@ function renderTopics() {
     const img = document.createElement("img");
     img.className = "topic-image";
     img.src = `./img/topic-${topicId}.jpg`;
+    img.alt = topic.name;
 
     const name = document.createElement("span");
     name.className = "topic-name";
@@ -252,7 +186,9 @@ function updateStats() {
   document.querySelector("#wrong-count").textContent = wrong;
 
   const attempted = correct + wrong;
-  const percentage = attempted ? Math.round((correct / attempted) * 100) : 0;
+  const percentage = attempted
+    ? Math.round((correct / attempted) * 100)
+    : 0;
 
   document.querySelector("#score-percent").textContent = `${percentage}%`;
 }
@@ -261,7 +197,8 @@ function updateProgress() {
   const total = questions.length;
   const percent = Math.round((currentIndex / total) * 100);
 
-  roundLabel.textContent = `Palavra ${currentIndex + 1} de ${total} · Rodada ${round}`;
+  roundLabel.textContent =
+    `Palavra ${currentIndex + 1} de ${total} · Rodada ${round}`;
 
   progressPercent.textContent = `${percent}%`;
   progressBar.style.width = `${percent}%`;
@@ -277,7 +214,10 @@ function nextQuestion() {
     questions = shuffle(topics[selectedTopic].vocabulary);
 
     // Evita repetir imediatamente a última palavra da rodada anterior.
-    if (questions.length > 1 && questions[0].italian === lastItalian) {
+    if (
+      questions.length > 1 &&
+      questions[0].italian === lastItalian
+    ) {
       [questions[0], questions[1]] = [questions[1], questions[0]];
     }
 
@@ -334,7 +274,8 @@ function submitAnswer(event) {
 
   if (!value) {
     feedback.className = "feedback error";
-    feedback.textContent = "Digite uma tradução antes de responder.";
+    feedback.textContent =
+      "Digite uma tradução antes de responder.";
 
     answerInput.focus();
     return;
@@ -360,9 +301,9 @@ function submitAnswer(event) {
     nextQuestionTimer = wrongTimer;
 
     feedback.className = "feedback error";
-    feedback.textContent =
-      `Não foi dessa vez. "${question.italian}" significa: ` +
-      `${question.portuguese[0]}.`;
+    feedback.innerHTML =
+      `Não foi dessa vez. "${question.italian}" significa: <b>` +
+      `${question.portuguese[0]}.</b>`;
   }
 
   updateStats();
@@ -395,7 +336,6 @@ function skipQuestion() {
  * ENCERRAMENTO
  */
 
-
 function stopGame() {
   if (transitionTimer !== null) {
     window.clearTimeout(transitionTimer);
@@ -427,14 +367,16 @@ function stopGame() {
   progressTrack.setAttribute("aria-valuenow", 100);
 }
 
-
 function startGame() {
   if (transitionTimer !== null) {
     window.clearTimeout(transitionTimer);
     transitionTimer = null;
   }
 
-  if (selectedTopic === null || !Object.hasOwn(topics, selectedTopic)) {
+  if (
+    selectedTopic === null ||
+    !Object.hasOwn(topics, selectedTopic)
+  ) {
     showTopicSelection();
     return;
   }
@@ -443,8 +385,10 @@ function startGame() {
 
   currentIndex = 0;
   round = 1;
+
   correct = 0;
   wrong = 0;
+
   nextQuestionTimer = 0;
   answered = false;
   lastItalian = null;
@@ -482,20 +426,19 @@ restartButton.addEventListener("click", startGame);
 topicsButton.addEventListener("click", showTopicSelection);
 backButton.addEventListener("click", showTopicSelection);
 
+btnChangeColor.addEventListener("click", () => {
+  if (toggleColor) {
+    document.body.style.background =
+      "radial-gradient(circle at top left, #e8eaff, transparent 42%), var(--bg)";
+  } else {
+    document.body.style.background = "#F283B6";
+  }
+
+  toggleColor = !toggleColor;
+});
+
 /*
  * INICIALIZAÇÃO
  */
 
-renderTopics();
-showTopicSelection();
-
-btnChangeColor.addEventListener("click", () => {
-  if(toggleColor) {
-    document.body.style.background = "radial-gradient(circle at top left, #e8eaff, transparent 42%), var(--bg)";
-    toggleColor = !toggleColor;
-
-  } else {
-    document.body.style.background = "#F283B6";
-    toggleColor = !toggleColor;
-  }
-})
+loadTopics();

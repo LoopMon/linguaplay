@@ -1,151 +1,181 @@
 <!doctype html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/vars.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./img/italia-bandeira.jpg"
+      type="image/x-icon"
+    />
+    <title>LinguaPlay</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./css/vars.css">
-  <link rel="stylesheet" href="./css/style.css" />
-  <link rel="shortcut icon" href="./img/italia-bandeira.jpg" type="image/x-icon">
-  <title>LinguaPlay</title>
-</head>
-
-<body>
-  <main class="game">
-    <div class="topline">
-      <h1 class="brand">LinguaPlay - Aprenda Italiano</h1>
-      <span class="tag">IT &xrarr; PT-BR</span>
-    </div>
-
-    <!-- Seleção de assunto -->
-    <section id="selection-screen">
-      <div class="selection-heading">
-        <h2>O que vamos aprender?</h2>
-        <p>Escolha um assunto para começar a jogar.</p>
+  <body>
+    <main class="game">
+      <div class="topline">
+        <h1 class="brand">LinguaPlay - Aprenda Italiano</h1>
+        <span class="tag">IT &xrarr; PT-BR</span>
       </div>
 
-      <div class="topic-list" id="topic-list">
-        <!-- Os assuntos são inseridos pelo JavaScript. -->
-      </div>
-    </section>
-
-    <!-- Tela do jogo -->
-    <section id="play-screen" hidden>
-      <div class="game-heading">
-        <button class="back-btn" id="back-btn" type="button">
-          &laquo; Assuntos
-        </button>
-        <span class="topic-label" id="topic-label"></span>
-      </div>
-
-
-      <div class="progress-row">
-        <span id="round-label">Palavra 1 de 9</span>
-        <span id="progress-percent">0%</span>
-      </div>
-
-      <div class="progress-track" role="progressbar" aria-label="Progresso da rodada" aria-valuemin="0"
-        aria-valuemax="100" aria-valuenow="0" id="progress-track">
-        <div class="progress-bar" id="progress-bar"></div>
-      </div>
-
-      <!-- Placar -->
-      <div class="stats" aria-label="Placar">
-        <div class="stat">
-          <strong id="correct-count">0</strong>
-          <span>Acertos</span>
+      <!-- Seleção de assunto -->
+      <section id="selection-screen">
+        <div class="selection-heading">
+          <h2>O que vamos aprender?</h2>
+          <p>Escolha um assunto para começar a jogar.</p>
         </div>
 
-        <div class="stat">
-          <strong id="wrong-count">0</strong>
-          <span>Erros</span>
+        <div class="topic-list" id="topic-list">
+          <!-- Os assuntos são inseridos pelo JavaScript. -->
+          <!-- Tópico de Exemplo -->
+          <!-- <button type="button" class="topic-card" data-topic="directions">
+            <img
+              class="topic-image"
+              src="./img/topic-directions.jpg"
+              alt="Direções"
+            />
+            <span class="topic-info">
+              <span class="topic-name">Direções</span>
+              <span class="topic-description">Aprenda a indicar posições e caminhos.</span>
+            </span>
+            <span class="topic-count">9 palavras</span>
+          </button> -->
+        </div>
+      </section>
+
+      <!-- Tela do jogo -->
+      <section id="play-screen" hidden>
+        <div class="game-heading">
+          <button class="back-btn" id="back-btn" type="button">
+            &laquo; Voltar p/ assuntos
+          </button>
+          <span class="topic-label" id="topic-label"></span>
         </div>
 
-        <div class="stat">
-          <strong id="score-percent">0%</strong>
-          <span>Aproveitamento</span>
-        </div>
-      </div>
-
-      <div class="prompt" aria-live="polite">
-        <div>
-          <p class="prompt-label">Traduza para português</p>
-          <p class="word" id="word"></p>
-        </div>
-      </div>
-
-
-      <form id="answer-form">
-        <label for="answer">Sua tradução</label>
-
-        <input class="answer-input" id="answer" name="answer" type="text" placeholder="Digite a tradução..."
-          autocomplete="off" autocapitalize="none" spellcheck="false" required />
-
-        <div class="feedback" id="feedback" aria-live="polite">
-          Digite sua resposta e pressione Enter.
+        <!-- Barra de progresso -->
+        <div class="progress-row">
+          <span id="round-label">Palavra 1 de 9</span>
+          <span id="progress-percent">0%</span>
         </div>
 
-        <div class="actions">
-          <button class="primary-btn" id="submit-btn" type="submit">
-            Responder
+        <div class="progress-track"
+          role="progressbar"
+          aria-label="Progresso da rodada"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+          id="progress-track"
+        >
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <!-- Placar -->
+        <div class="stats" aria-label="Placar">
+          <div class="stat">
+            <strong id="correct-count">0</strong>
+            <span>Acertos</span>
+          </div>
+
+          <div class="stat">
+            <strong id="wrong-count">0</strong>
+            <span>Erros</span>
+          </div>
+
+          <div class="stat">
+            <strong id="score-percent">0%</strong>
+            <span>Aproveitamento</span>
+          </div>
+        </div>
+
+        <!-- Quadro -->
+        <div class="prompt" aria-live="polite">
+          <div>
+            <p class="prompt-label">Traduza para português</p>
+            <p class="word" id="word"></p>
+          </div>
+        </div>
+
+        <!-- Entrada do usuário -->
+        <form id="answer-form">
+          <label for="answer">Sua tradução</label>
+
+          <input
+            class="answer-input"
+            id="answer"
+            name="answer"
+            type="text"
+            placeholder="Digite a tradução..."
+            autocomplete="off"
+            autocapitalize="none"
+            spellcheck="false"
+            required
+          />
+
+          <div class="feedback" id="feedback" aria-live="polite">
+            Digite sua resposta e pressione Enter.
+          </div>
+
+          <div class="actions">
+            <button class="primary-btn" id="submit-btn" type="submit">
+              Responder
+            </button>
+
+            <button class="secondary-btn" id="skip-btn" type="button">
+              Pular palavra
+            </button>
+
+            <button class="third-btn" id="stop-btn" type="button">
+              Parar partida
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Resultado da partida -->
+      <section class="end-screen" id="end-screen" hidden>
+        <h2>Partida encerrada!</h2>
+
+        <div class="final-results" id="final-message">
+          <div class="result-row">
+            <span class="result-label">Assunto:</span>
+            <span class="result-value" id="result-topic"></span>
+          </div>
+
+          <div class="result-row">
+            <span class="result-label">Palavras respondidas:</span>
+            <span class="result-value" id="result-total">0</span>
+          </div>
+
+          <div class="result-row">
+            <span class="result-label">Acertos:</span>
+            <span class="result-value" id="result-correct">0</span>
+          </div>
+
+          <div class="result-row">
+            <span class="result-label">Erros:</span>
+            <span class="result-value" id="result-wrong">0</span>
+          </div>
+
+          <div class="result-row">
+            <span class="result-label">Aproveitamento:</span>
+            <span class="result-value" id="result-percentage">0%</span>
+          </div>
+        </div>
+
+        <div class="end-actions">
+          <button class="primary-btn" id="restart-btn" type="button">
+            Jogar novamente
           </button>
 
-          <button class="secondary-btn" id="skip-btn" type="button">
-            Pular palavra
-          </button>
-
-          <button class="third-btn" id="stop-btn" type="button">
-            Parar partida
+          <button class="secondary-btn" id="topics-btn" type="button">
+            Escolher outro assunto
           </button>
         </div>
-      </form>
-    </section>
+      </section>
+    </main>
 
-    <!-- Resultado da partida -->
-    <section class="end-screen" id="end-screen" hidden>
-      <h2>Partida encerrada!</h2>
-
-      <div class="final-results" id="final-message">
-        <div class="result-row">
-          <span class="result-label">Assunto:</span>
-          <span class="result-value" id="result-topic"></span>
-        </div>
-
-        <div class="result-row">
-          <span class="result-label">Palavras respondidas:</span>
-          <span class="result-value" id="result-total">0</span>
-        </div>
-
-        <div class="result-row">
-          <span class="result-label">Acertos:</span>
-          <span class="result-value" id="result-correct">0</span>
-        </div>
-
-        <div class="result-row">
-          <span class="result-label">Erros:</span>
-          <span class="result-value" id="result-wrong">0</span>
-        </div>
-
-        <div class="result-row">
-          <span class="result-label">Aproveitamento:</span>
-          <span class="result-value" id="result-percentage">0%</span>
-        </div>
-      </div>
-
-      <div class="end-actions">
-        <button class="primary-btn" id="restart-btn" type="button">
-          Jogar novamente
-        </button>
-
-        <button class="secondary-btn" id="topics-btn" type="button">
-          Escolher outro assunto
-        </button>
-      </div>
-    </section>
-
-  </main>
-
-  <script src="./script.js"></script>
-</body>
-
+    <script src="./script.js"></script>
+  </body>
 </html>

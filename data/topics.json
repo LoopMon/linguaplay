@@ -1,0 +1,114 @@
+{
+  "directions": {
+    "name": "Direções",
+    "description": "Aprenda a indicar posições e caminhos.",
+    "vocabulary": [
+      { "italian": "Destra", "portuguese": ["direita", "direito"] },
+      { "italian": "Sinistra", "portuguese": ["esquerda", "esquerdo"] },
+      { "italian": "Dritto", "portuguese": ["direto", "reto", "em frente"] },
+      { "italian": "Vicino", "portuguese": ["perto", "próximo", "próxima"] },
+      { "italian": "Lontano", "portuguese": ["longe", "distante"] },
+      { "italian": "Qui", "portuguese": ["aqui"] },
+      { "italian": "Lì", "portuguese": ["ali", "alí"] },
+      { "italian": "Sopra", "portuguese": ["acima", "em cima", "sobre"] },
+      { "italian": "Sotto", "portuguese": ["abaixo", "embaixo", "debaixo"] }
+    ]
+  },
+
+  "clothing": {
+    "name": "Peças de roupa",
+    "description": "Conheça nomes de roupas e acessórios.",
+    "vocabulary": [
+      { "italian": "Maglietta", "portuguese": ["camiseta"] },
+      { "italian": "Camicia", "portuguese": ["camisa"] },
+      { "italian": "Pantalone", "portuguese": ["calça", "calcas", "calças"] },
+      { "italian": "Jeans", "portuguese": ["jeans"] },
+      { "italian": "Gonna", "portuguese": ["saia"] },
+      { "italian": "Vestito", "portuguese": ["vestido"] },
+      { "italian": "Giacca", "portuguese": ["jaqueta"] },
+      { "italian": "Cappotto", "portuguese": ["casaco", "sobretudo"] },
+      {
+        "italian": "Maglione",
+        "portuguese": ["suéter", "sueter", "blusão", "pulôver", "pulover"]
+      },
+      { "italian": "Calzino", "portuguese": ["meia", "meias"] },
+      { "italian": "Scarpe", "portuguese": ["sapato", "sapatos"] },
+      { "italian": "Stivali", "portuguese": ["bota", "botas"] },
+      { "italian": "Cappello", "portuguese": ["chapéu", "chapeu"] },
+      { "italian": "Sciarpa", "portuguese": ["cachecol"] },
+      { "italian": "Guanti", "portuguese": ["luva", "luvas"] },
+      { "italian": "Cintura", "portuguese": ["cinto"] },
+      { "italian": "Borsa", "portuguese": ["bolsa"] },
+      { "italian": "Zaino", "portuguese": ["mochila"] },
+      { "italian": "Occhiali", "portuguese": ["óculos", "oculos"] },
+      { "italian": "Orologio", "portuguese": ["relógio", "relogio"] },
+      { "italian": "Collana", "portuguese": ["colar"] },
+      { "italian": "Braccialetto", "portuguese": ["pulseira"] }
+    ]
+  },
+
+  "foods": {
+    "name": "Comidas",
+    "description": "Aprenda sobre comidas e bebidas",
+    "vocabulary": [
+      { "italian": "mela", "portuguese": ["maçã"] },
+      { "italian": "banana", "portuguese": ["banana"] },
+      { "italian": "uva", "portuguese": ["uva"] },
+      { "italian": "arancia", "portuguese": ["laranja"] },
+      { "italian": "pera", "portuguese": ["pera"] },
+      { "italian": "fragola", "portuguese": ["morango"] },
+      { "italian": "mirtillo", "portuguese": ["mirtilo"] },
+      { "italian": "pasta", "portuguese": ["massa", "macarrão"] },
+      { "italian": "pane", "portuguese": ["pão"] },
+      { "italian": "acqua", "portuguese": ["água"] },
+      { "italian": "latte", "portuguese": ["leite"] },
+      { "italian": "pizza", "portuguese": ["pizza"] },
+      { "italian": "pomodoro", "portuguese": ["tomate"] },
+      { "italian": "caffè", "portuguese": ["café"] },
+      { "italian": "carota", "portuguese": ["cenoura"] },
+      { "italian": "pollo", "portuguese": ["frango"] },
+      { "italian": "gelato", "portuguese": ["sorvete"] },
+      { "italian": "riso", "portuguese": ["arroz"] },
+      { "italian": "centriolo", "portuguese": ["pepino"] },
+      { "italian": "mandarino", "portuguese": ["tangerina"] },
+      { "italian": "pompelmo", "portuguese": ["toranja"] },
+      { "italian": "torta", "portuguese": ["bolo", "torta"] }
+    ]
+  },
+
+  "colors": {
+    "name": "Cores",
+    "description": "Aprenda os nomes das cores em italiano.",
+    "vocabulary": [
+      { "italian": "Rosso", "portuguese": ["vermelho", "vermelha"] },
+      { "italian": "Giallo", "portuguese": ["amarelo", "amarela"] },
+      { "italian": "Verde", "portuguese": ["verde"] },
+      { "italian": "Blu", "portuguese": ["azul"] },
+      { "italian": "Grigio", "portuguese": ["cinza"] },
+      { "italian": "Arancione", "portuguese": ["laranja"] },
+      { "italian": "Viola", "portuguese": ["roxo", "violeta"] },
+      { "italian": "Marrone", "portuguese": ["marrom"] },
+      { "italian": "Nero", "portuguese": ["preto"] },
+      { "italian": "Rosa", "portuguese": ["rosa"] },
+      { "italian": "Bianco", "portuguese": ["branco", "branca"] }
+    ]
+  },
+  "months": {
+    "name": "Meses do ano",
+    "description": "Aprenda os nomes dos meses do ano em italiano.",
+    "vocabulary": [
+      { "italian": "Gennaio", "portuguese": ["janeiro"] },
+      { "italian": "Febbraio", "portuguese": ["fevereiro"] },
+      { "italian": "Marzo", "portuguese": ["março", "marco"] },
+      { "italian": "Aprile", "portuguese": ["abril"] },
+      { "italian": "Maggio", "portuguese": ["maio"] },
+      { "italian": "Giugno", "portuguese": ["junho"] },
+      { "italian": "Luglio", "portuguese": ["julho"] },
+      { "italian": "Agosto", "portuguese": ["agosto"] },
+      { "italian": "Settembre", "portuguese": ["setembro"] },
+      { "italian": "Ottobre", "portuguese": ["outubro"] },
+      { "italian": "Novembre", "portuguese": ["novembro"] },
+      { "italian": "Dicembre", "portuguese": ["dezembro"] }
+    ]
+  }
+}
