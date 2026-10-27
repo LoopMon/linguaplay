@@ -14,7 +14,6 @@
       { "italian": "Sotto", "portuguese": ["abaixo", "embaixo", "debaixo"] }
     ]
   },
-
   "clothing": {
     "name": "Peças de roupa",
     "description": "Conheça nomes de roupas e acessórios.",
@@ -27,10 +26,7 @@
       { "italian": "Vestito", "portuguese": ["vestido"] },
       { "italian": "Giacca", "portuguese": ["jaqueta"] },
       { "italian": "Cappotto", "portuguese": ["casaco", "sobretudo"] },
-      {
-        "italian": "Maglione",
-        "portuguese": ["suéter", "sueter", "blusão", "pulôver", "pulover"]
-      },
+      { "italian": "Maglione", "portuguese": ["suéter", "sueter", "blusão", "pulôver", "pulover"] },
       { "italian": "Calzino", "portuguese": ["meia", "meias"] },
       { "italian": "Scarpe", "portuguese": ["sapato", "sapatos"] },
       { "italian": "Stivali", "portuguese": ["bota", "botas"] },
@@ -46,7 +42,6 @@
       { "italian": "Braccialetto", "portuguese": ["pulseira"] }
     ]
   },
-
   "foods": {
     "name": "Comidas",
     "description": "Aprenda sobre comidas e bebidas",
@@ -65,6 +60,7 @@
       { "italian": "pizza", "portuguese": ["pizza"] },
       { "italian": "pomodoro", "portuguese": ["tomate"] },
       { "italian": "caffè", "portuguese": ["café"] },
+      { "italian": "tè", "portuguese": ["chá"] },
       { "italian": "carota", "portuguese": ["cenoura"] },
       { "italian": "pollo", "portuguese": ["frango"] },
       { "italian": "gelato", "portuguese": ["sorvete"] },
@@ -72,10 +68,10 @@
       { "italian": "centriolo", "portuguese": ["pepino"] },
       { "italian": "mandarino", "portuguese": ["tangerina"] },
       { "italian": "pompelmo", "portuguese": ["toranja"] },
-      { "italian": "torta", "portuguese": ["bolo", "torta"] }
+      { "italian": "torta", "portuguese": ["bolo", "torta"] },
+      { "italian": "polpetta", "portuguese": ["almôndega"] }
     ]
   },
-
   "colors": {
     "name": "Cores",
     "description": "Aprenda os nomes das cores em italiano.",
@@ -97,18 +93,41 @@
     "name": "Meses do ano",
     "description": "Aprenda os nomes dos meses do ano em italiano.",
     "vocabulary": [
-      { "italian": "Gennaio", "portuguese": ["janeiro"] },
-      { "italian": "Febbraio", "portuguese": ["fevereiro"] },
-      { "italian": "Marzo", "portuguese": ["março", "marco"] },
-      { "italian": "Aprile", "portuguese": ["abril"] },
-      { "italian": "Maggio", "portuguese": ["maio"] },
-      { "italian": "Giugno", "portuguese": ["junho"] },
-      { "italian": "Luglio", "portuguese": ["julho"] },
-      { "italian": "Agosto", "portuguese": ["agosto"] },
-      { "italian": "Settembre", "portuguese": ["setembro"] },
-      { "italian": "Ottobre", "portuguese": ["outubro"] },
-      { "italian": "Novembre", "portuguese": ["novembro"] },
-      { "italian": "Dicembre", "portuguese": ["dezembro"] }
+      { "italian": "Gennaio", "portuguese": ["janeiro", "jan"] },
+      { "italian": "Febbraio", "portuguese": ["fevereiro", "fev"] },
+      { "italian": "Marzo", "portuguese": ["março", "marco", "mar"] },
+      { "italian": "Aprile", "portuguese": ["abril", "abr"] },
+      { "italian": "Maggio", "portuguese": ["maio", "mai"] },
+      { "italian": "Giugno", "portuguese": ["junho", "jun"] },
+      { "italian": "Luglio", "portuguese": ["julho", "jul"] },
+      { "italian": "Agosto", "portuguese": ["agosto", "ago"] },
+      { "italian": "Settembre", "portuguese": ["setembro", "set"] },
+      { "italian": "Ottobre", "portuguese": ["outubro", "out"] },
+      { "italian": "Novembre", "portuguese": ["novembro", "nov"] },
+      { "italian": "Dicembre", "portuguese": ["dezembro", "dez"] }
+    ]
+  },
+  "weekday": {
+    "name": "Dias da Semana",
+    "description": "Descubra os dias da semana em Italiano.",
+    "vocabulary": [
+      { "italian": "lunedì", "portuguese": ["seg", "segunda", "segunda-feira", "segunda feira"] },
+      { "italian": "martedì", "portuguese": ["ter", "terça", "terça-feira", "terca-feira", "terça feira", "terca feira"] },
+      { "italian": "mercoledì", "portuguese": ["qua", "quarta", "quarta-feira", "quarta feira"] },
+      { "italian": "giovedì", "portuguese": ["qui", "quinta", "quinta-feira", "quinta feira"] },
+      { "italian": "venerdì", "portuguese": ["sex", "sexta", "sexta-feira", "sexta feira"] },
+      { "italian": "sabato", "portuguese": ["sáb", "sab", "sábado", "sabado"] },
+      { "italian": "domenica", "portuguese": ["dom", "domingo"] }
+    ]
+  },
+  "seasons": {
+    "name": "Estações do Ano",
+    "description": "Aprenda sobre os quatro períodos de padrões climáticos.",
+    "vocabulary": [
+      { "italian": "Autunno", "portuguese": ["outono"] },
+      { "italian": "Estate", "portuguese": ["verão"] },
+      { "italian": "Inverno", "portuguese": ["inverno"] },
+      { "italian": "Primavera", "portuguese": ["primavera"] }
     ]
   }
 }
