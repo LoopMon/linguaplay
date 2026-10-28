@@ -9,7 +9,7 @@
       { "italian": "Vicino", "portuguese": ["perto", "próximo", "próxima"] },
       { "italian": "Lontano", "portuguese": ["longe", "distante"] },
       { "italian": "Qui", "portuguese": ["aqui"] },
-      { "italian": "Lì", "portuguese": ["ali", "alí"] },
+      { "italian": "Lì", "portuguese": ["alí", "ali"] },
       { "italian": "Sopra", "portuguese": ["acima", "em cima", "sobre"] },
       { "italian": "Sotto", "portuguese": ["abaixo", "embaixo", "debaixo"] }
     ]
@@ -47,6 +47,7 @@
     "description": "Aprenda sobre comidas e bebidas",
     "vocabulary": [
       { "italian": "mela", "portuguese": ["maçã"] },
+      { "italian": "zucchero", "portuguese": ["açúcar"] },
       { "italian": "banana", "portuguese": ["banana"] },
       { "italian": "uva", "portuguese": ["uva"] },
       { "italian": "arancia", "portuguese": ["laranja"] },
@@ -111,13 +112,13 @@
     "name": "Dias da Semana",
     "description": "Descubra os dias da semana em Italiano.",
     "vocabulary": [
-      { "italian": "lunedì", "portuguese": ["seg", "segunda", "segunda-feira", "segunda feira"] },
-      { "italian": "martedì", "portuguese": ["ter", "terça", "terça-feira", "terca-feira", "terça feira", "terca feira"] },
-      { "italian": "mercoledì", "portuguese": ["qua", "quarta", "quarta-feira", "quarta feira"] },
-      { "italian": "giovedì", "portuguese": ["qui", "quinta", "quinta-feira", "quinta feira"] },
-      { "italian": "venerdì", "portuguese": ["sex", "sexta", "sexta-feira", "sexta feira"] },
-      { "italian": "sabato", "portuguese": ["sáb", "sab", "sábado", "sabado"] },
-      { "italian": "domenica", "portuguese": ["dom", "domingo"] }
+      { "italian": "lunedì", "portuguese": ["segunda-feira", "segunda feira", "segunda", "seg"] },
+      { "italian": "martedì", "portuguese": ["terça-feira", "terca-feira", "terça feira", "terca feira", "terça", "ter"] },
+      { "italian": "mercoledì", "portuguese": ["quarta-feira", "quarta feira", "quarta", "qua"] },
+      { "italian": "giovedì", "portuguese": ["quinta-feira", "quinta feira", "quinta", "qui"] },
+      { "italian": "venerdì", "portuguese": ["sexta-feira", "sexta feira", "sexta", "sex"] },
+      { "italian": "sabato", "portuguese": ["sábado", "sabado", "sáb", "sab"] },
+      { "italian": "domenica", "portuguese": ["domingo", "dom"] }
     ]
   },
   "seasons": {
@@ -128,6 +129,35 @@
       { "italian": "Estate", "portuguese": ["verão"] },
       { "italian": "Inverno", "portuguese": ["inverno"] },
       { "italian": "Primavera", "portuguese": ["primavera"] }
+    ]
+  },
+  "vehicles": {
+    "name": "Veículos",
+    "description": "Tipos de transporte em italiano.",
+    "vocabulary": [
+      { "italian": "macchina", "portuguese": ["carro"] },
+      { "italian": "autobus", "portuguese": ["ônibus"] },
+      { "italian": "aereo", "portuguese": ["avião"] },
+      { "italian": "nave", "portuguese": ["navio"] },
+      { "italian": "treno", "portuguese": ["trem"] }
+    ]
+  },
+  "buildings": {
+    "name": "Edifícios",
+    "description": "Tipos de construção para abrigar atividades humanas.",
+    "vocabulary": [
+      { "italian": "casa", "portuguese": ["casa"] },
+      { "italian": "scuola", "portuguese": ["escola"] },
+      { "italian": "banca", "portuguese": ["banco"] },
+      { "italian": "gelateria", "portuguese": ["sorveteria"] },
+      { "italian": "museo", "portuguese": ["museu"] },
+      { "italian": "ristorante", "portuguese": ["restaurante"] },
+      { "italian": "farmacia", "portuguese": ["farmácia"] },
+      { "italian": "ospedale", "portuguese": ["hospital"] },
+      { "italian": "libreria", "portuguese": ["livraria"] },
+      { "italian": "piazza", "portuguese": ["praça"] },
+      { "italian": "chiesa", "portuguese": ["igreja"] },
+      { "italian": "duomo", "portuguese": ["catedral"] }
     ]
   }
 }
