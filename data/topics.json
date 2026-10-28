@@ -159,5 +159,61 @@
       { "italian": "chiesa", "portuguese": ["igreja"] },
       { "italian": "duomo", "portuguese": ["catedral"] }
     ]
+  },
+  "numbers": {
+    "name": "Números",
+    "description": "Aprenda a contar em italiano.",
+    "vocabulary": [
+      { "italian": "uno", "portuguese": ["um"] },
+      { "italian": "due", "portuguese": ["dois"] },
+      { "italian": "tre", "portuguese": ["três"] },
+      { "italian": "quattro", "portuguese": ["quatro"] },
+      { "italian": "cinque", "portuguese": ["cinco"] },
+      { "italian": "sei", "portuguese": ["seis"] },
+      { "italian": "sette", "portuguese": ["sete"] },
+      { "italian": "otto", "portuguese": ["oito"] },
+      { "italian": "nove", "portuguese": ["nove"] },
+      { "italian": "dieci", "portuguese": ["dez"] },
+      { "italian": "undici", "portuguese": ["onze"] }
+    ]
+  },
+  "family": {
+    "name": "Família",
+    "description": "Aprenda os membros da família.",
+    "vocabulary": [
+      { "italian": "padre", "portuguese": ["pai"] },
+      { "italian": "madre", "portuguese": ["mãe"] },
+      { "italian": "figlio", "portuguese": ["filho"] },
+      { "italian": "figlia", "portuguese": ["filha"] },
+      { "italian": "nonno", "portuguese": ["vovô"] },
+      { "italian": "nonna", "portuguese": ["vovó"] },
+      { "italian": "bebè", "portuguese": ["bebê"] },
+      { "italian": "fratello", "portuguese": ["irmão"] },
+      { "italian": "sorella", "portuguese": ["irmã"] },
+      { "italian": "amico", "portuguese": ["amigo"] },
+      { "italian": "famiglia", "portuguese": ["família"] },
+      { "italian": "nipote", "portuguese": ["sobrinho", "sobrinha"] },
+      { "italian": "cugino", "portuguese": ["primo"] },
+      { "italian": "cugina", "portuguese": ["prima"] }
+    ]
+  },
+  "house": {
+    "name": "Casa",
+    "description": "Móveis da casa.",
+    "vocabulary": [
+      { "italian": "casa", "portuguese": ["casa"] },
+      { "italian": "porta", "portuguese": ["porta"] },
+      { "italian": "finestra", "portuguese": ["janela"] },
+      { "italian": "letto", "portuguese": ["cama"] },
+      { "italian": "sedia", "portuguese": ["cadeira"] },
+      { "italian": "tavolo", "portuguese": ["mesa"] },
+      { "italian": "bagno", "portuguese": ["banheiro"] },
+      { "italian": "chiave", "portuguese": ["chave"] },
+      { "italian": "specchio", "portuguese": ["espelho"] },
+      { "italian": "cucina", "portuguese": ["cozinha"] },
+      { "italian": "divano", "portuguese": ["sofá"] },
+      { "italian": "giardino", "portuguese": ["jardim"] },
+      { "italian": "tenda", "portuguese": ["cortina", "barraca", "tenda"] }
+    ]
   }
 }
